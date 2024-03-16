@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+            .container{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+
+            .calculator{
+                background: darkslategray;
+                padding: 20px;
+                border-radius: 10px;
+            }
+
+            p#toptext{
+                text-align: center; 
+                color: white;
+            }
+
+            .calculator form input, .calculator form button{
+                border: 0;
+                outline: 0;
+                width: 60px;
+                height: 60px;
+                background: transparent;
+                border-radius: 10px;
+                box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.2), 5px 5px 15px rgba(0, 0, 0, 0.2);
+                font-size: 20px;
+                color: white;
+                cursor: pointer;
+                margin: 10px;
+            }
+
+            form .display{
+                display: flex;
+                justify-content: flex-end;
+                margin: 20px 0;
+            }
+
+            form .display input{
+                text-align: right;
+                flex: 1;
+                font-size: 45px;
+                box-shadow: none;
+                cursor: default;
+                background: lightseagreen;
+                padding: 10px;
+                color: black;
+            }
+
+            form button.equal{
+                width: 145px;
+            }
+
+            form button.operator{
+                background : rgba(0, 255, 170, 0.3);
+            }
+
+            @media screen and (max-width: 400px) {
+
+                .calculator form input, .calculator form button{
+                    width: 40px;
+                    height: 40px;
+                }
+
+                form button.equal{
+                    width: 105px;
+                }
+
+                form .display input{
+                    font-size: 35px;
+                }
+            }
+
+            @media screen and (max-width: 300px) {
+
+                .calculator form input, .calculator form button{
+                    width: 25px;
+                    height: 25px;
+                }
+
+                form button.equal{
+                    width: 75px;
+                }
+
+                form .display input{
+                    font-size: 20px;
+                }
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="calculator">
+                <form>
+                    <p id="toptext">Calculator</p>
+
+                    <div class="display">
+                        <input type="text" id="display">
+                    </div>
+
+                    <div>
+                        <button type="button" onclick="display.value = ''" class="operator">AC</button>
+                        <button type="button" onclick="display.value = display.value.toString().slice(0,-1)" class="operator">DEL</button>
+                        <button type="button" onclick="display.value += '.'" class="operator">.</button>
+                        <button type="button" onclick="display.value += '/'" class="operator">/</button>
+                    </div>
+
+                    <div>
+                        <button type="button" onclick="display.value += '7'">7</button>
+                        <button type="button" onclick="display.value += '8'">8</button>
+                        <button type="button" onclick="display.value += '9'">9</button>
+                        <button type="button" onclick="display.value += '*'" class="operator">*</button>
+                    </div>
+
+                    <div>
+                        <button type="button" onclick="display.value += '4'">4</button>
+                        <button type="button" onclick="display.value += '5'">5</button>
+                        <button type="button" onclick="display.value += '6'">6</button>
+                        <button type="button" onclick="display.value += '-'" class="operator">-</button>
+                    </div>
+
+                    <div>
+                        <button type="button" onclick="display.value += '1'">1</button>
+                        <button type="button" onclick="display.value += '2'">2</button>
+                        <button type="button" onclick="display.value += '3'">3</button>
+                        <button type="button" onclick="display.value += '+'" class="operator">+</button>
+                    </div>
+
+                    <div>
+                        <button type="button" onclick="display.value += '00'">00</button>
+                        <button type="button" onclick="display.value += '0'">0</button>
+                        <button type="button" onclick="display.value = eval(display.value)" class="equal operator">=</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
